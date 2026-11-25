@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-sans: "DM Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --color-obsidian: #080808;
+  --color-surface: #121212;
+  --color-surface-elevated: #1A1A1A;
+  --color-surface-border: #262626;
+  --color-gold: #D4AF37;
+  --color-gold-bright: #F0D264;
+  --color-gold-muted: #9E7F24;
+}
+
+@layer base {
+  html, body, #root {
+    height: 100%;
+    background-color: #080808;
+    color: #FFFFFF;
+    font-family: var(--font-sans);
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: var(--font-display);
+  }
+
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Custom sleek dark scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #0D0D0D;
+}
+::-webkit-scrollbar-thumb {
+  background: #2C2C2C;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #D4AF37;
+}
+
+/* Metallic gold range slider */
+input[type="range"].allcut-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  background: #262626;
+  height: 4px;
+  border-radius: 9999px;
+  outline: none;
+}
+input[type="range"].allcut-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #F5DF89 0%, #D4AF37 55%, #9C7A1C 100%);
+  border: 2px solid #080808;
+  box-shadow: 0 0 0 1px rgba(212, 175, 55, 0.5);
+  cursor: pointer;
+}
+input[type="range"].allcut-slider::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #F5DF89 0%, #D4AF37 55%, #9C7A1C 100%);
+  border: 2px solid #080808;
+  cursor: pointer;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@keyframes splashCutLeft {
+  0% { transform: translate(-28px, 16px) scale(0.92); opacity: 0; }
+  60% { transform: translate(0, 0) scale(1); opacity: 1; }
+  100% { transform: translate(0, 0) scale(1); opacity: 1; }
+}
+@keyframes splashCutBlade {
+  0% { stroke-dashoffset: 220; opacity: 0; }
+  35% { opacity: 1; }
+  100% { stroke-dashoffset: 0; opacity: 1; }
+}
+.animate-splash-cut {
+  animation: splashCutLeft 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.animate-splash-blade {
+  stroke-dasharray: 220;
+  animation: splashCutBlade 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
+}

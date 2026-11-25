@@ -1,0 +1,6 @@
+{
+  "name": "ALL CUT",
+  "description": "Professional offline multitrack video editor with beat-synced time remapping, keyframe Bézier animation, motion tracking, sharpening & structure enhancement, masks, and GPU-accelerated rendering.",
+  "requestFramePermissions": ["camera", "microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
